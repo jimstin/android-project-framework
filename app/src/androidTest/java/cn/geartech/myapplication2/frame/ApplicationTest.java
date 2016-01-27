@@ -1,4 +1,4 @@
-package cn.geartech.myapplication2.app;
+package cn.geartech.myapplication2.frame;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
