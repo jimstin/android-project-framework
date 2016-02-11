@@ -10,11 +10,10 @@ import com.alibaba.fastjson.JSON;
 import com.jimstin.framework.R;
 import com.jimstin.framework.entity.UserEntity;
 import com.jimstin.framework.utils.DebugUtil;
+import com.jimstin.framework.utils.GlobalUtil;
 
 
 public class MainActivity extends AppBaseActivity {
-
-    private TextView tvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +48,13 @@ public class MainActivity extends AppBaseActivity {
                 toActivity(intent);
             }
         });
+
+        testConvertToInt();
+    }
+
+    private void testConvertToInt() {
+        DebugUtil.logInfo(GlobalUtil.convertToInt("Jim", 9) + "");
+        DebugUtil.logInfo(GlobalUtil.convertToInt("123", 9)+"");
     }
 
     /**
