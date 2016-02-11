@@ -1,10 +1,20 @@
 package com.jimstin.framework.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.alibaba.fastjson.JSON;
 import com.jimstin.framework.R;
+import com.jimstin.framework.entity.UserEntity;
+import com.jimstin.framework.utils.DebugUtil;
 
 
 public class MainActivity extends AppBaseActivity {
+
+    private TextView tvText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,16 +22,38 @@ public class MainActivity extends AppBaseActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * 初始化变量
+     */
     @Override
     protected void initVariables() {
 
     }
 
+    /**
+     * 加载 layout 布局文件
+     */
     @Override
     protected void initViews() {
 
+        Button btnJump = (Button) findViewById(R.id.btn_jump);
+        btnJump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserEntity userEntity = new UserEntity();
+                userEntity.setName("jim");
+                userEntity.setGender(UserEntity.GENDER_MALE);
+                userEntity.setAge(26);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("obj", userEntity);
+                toActivity(intent);
+            }
+        });
     }
 
+    /**
+     * 获取数据(本地或网络)
+     */
     @Override
     protected void loadData() {
 

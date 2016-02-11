@@ -13,14 +13,7 @@ public abstract class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initVariables();
-        initViews();
-        loadData();
+        setContentView(R.layout.activity_base);
     }
-
-    protected abstract void initVariables();
-    protected abstract void initViews();
-    protected abstract void loadData();
 
 }

@@ -17,7 +17,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "cn.geartech.myapplication2.app"
+        applicationId "com.jimstin.framework"
         minSdkVersion 14
         targetSdkVersion 19
         versionCode 1
