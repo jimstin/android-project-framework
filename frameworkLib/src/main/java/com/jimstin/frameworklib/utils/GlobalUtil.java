@@ -1,4 +1,4 @@
-package com.jimstin.framework.utils;
+package com.jimstin.frameworklib.utils;
 
 /**
  * Created by jim on 16-2-12.

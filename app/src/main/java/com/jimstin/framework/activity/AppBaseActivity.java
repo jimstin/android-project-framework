@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import com.jimstin.framework.R;
 import com.jimstin.frameworklib.activity.BaseActivity;
+import com.jimstin.frameworklib.net.RequestCallback;
+import com.jimstin.frameworklib.net.Response;
 
 public abstract class AppBaseActivity extends BaseActivity {
 
@@ -67,5 +69,16 @@ public abstract class AppBaseActivity extends BaseActivity {
 
     protected void toastMsgForDuration(String msg, int millis) {
         Toast.makeText(this, msg, millis).show();
+    }
+
+    public abstract class AbstractRequestCallback implements RequestCallback {
+
+
+        public abstract void onSuccess(Response response);
+
+        @Override
+        public void onFail(Response response) {
+
+        }
     }
 }

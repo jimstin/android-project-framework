@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.jimstin.framework.R;
-import com.jimstin.framework.entity.UserEntity;
-import com.jimstin.framework.utils.DebugUtil;
-import com.jimstin.framework.utils.GlobalUtil;
+import com.jimstin.frameworklib.entity.UserEntity;
+import com.jimstin.frameworklib.utils.DebugUtil;
+import com.jimstin.frameworklib.utils.GlobalUtil;
 
 
 public class MainActivity extends AppBaseActivity {

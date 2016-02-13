@@ -1,5 +1,7 @@
 package com.jimstin.frameworklib.net;
 
+import com.jimstin.frameworklib.entity.BaseEntity;
+
 import java.util.ArrayList;
 
 /**
@@ -8,13 +10,15 @@ import java.util.ArrayList;
 public class RequestInPack {
     private String url;
     private ArrayList<RequestParameter> parameters;
+    private ArrayList<String> filePath;
+    private BaseEntity baseEntity;
     private RequestCallback callback;
 
-
     public RequestInPack(String url, ArrayList<RequestParameter> parameters,
-                         RequestCallback callback) {
+                         BaseEntity baseEntity, RequestCallback callback) {
         this.url = url;
         this.parameters = parameters;
+        this.baseEntity = baseEntity;
         this.callback = callback;
     }
 
@@ -40,5 +44,21 @@ public class RequestInPack {
 
     public void setCallback(RequestCallback callback) {
         this.callback = callback;
+    }
+
+    public ArrayList<String> getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(ArrayList<String> filesPath) {
+        this.filePath = filesPath;
+    }
+
+    public BaseEntity getBaseEntity() {
+        return baseEntity;
+    }
+
+    public void setBaseEntity(BaseEntity baseEntity) {
+        this.baseEntity = baseEntity;
     }
 }

@@ -1,4 +1,6 @@
-package com.jimstin.framework.entity;
+package com.jimstin.frameworklib.entity;
+
+import com.alibaba.fastjson.JSON;
 
 /**
  * Created by jim on 16-2-11.
@@ -33,5 +35,10 @@ public class UserEntity extends BaseEntity {
 
     public void setGender(int gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public BaseEntity doParse(String jsonString) {
+        return (UserEntity) JSON.parse(jsonString);
     }
 }

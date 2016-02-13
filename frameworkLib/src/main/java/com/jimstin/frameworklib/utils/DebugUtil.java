@@ -1,4 +1,4 @@
-package com.jimstin.framework.utils;
+package com.jimstin.frameworklib.utils;
 
 import android.util.Log;
 

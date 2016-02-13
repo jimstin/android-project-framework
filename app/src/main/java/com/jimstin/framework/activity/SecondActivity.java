@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.alibaba.fastjson.JSON;
 import com.jimstin.framework.R;
-import com.jimstin.framework.entity.UserEntity;
+import com.jimstin.frameworklib.entity.UserEntity;
 
 public class SecondActivity extends AppBaseActivity {
 
