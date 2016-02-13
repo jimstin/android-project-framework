@@ -1,5 +1,7 @@
 package com.jimstin.frameworklib.net;
 
+import com.jimstin.frameworklib.entity.UserEntity;
+
 import java.util.ArrayList;
 
 /**
@@ -25,7 +27,7 @@ public class RequestManager {
         String url = "";
         ArrayList<RequestParameter> requestParameters =
                 new ArrayList<RequestParameter>();
-        RequestInPack inpack = new RequestInPack(url, requestParameters, callback);
+        RequestInPack inpack = new RequestInPack(url, requestParameters, new UserEntity(), callback);
         HttpRequest httpRequest = new HttpRequest(HttpRequest.METHOD_POST, inpack, this);
         DefaultThreadPool.getInstance().addRequest(httpRequest);
     }
