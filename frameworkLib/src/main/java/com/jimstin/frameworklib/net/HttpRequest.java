@@ -1,5 +1,7 @@
 package com.jimstin.frameworklib.net;
 
+import android.os.Handler;
+import com.jimstin.frameworklib.app.FrameworkApp;
 import com.jimstin.frameworklib.entity.BaseEntity;
 import com.jimstin.frameworklib.utils.DebugUtil;
 
@@ -40,6 +42,7 @@ public class HttpRequest implements Runnable, Serializable {
     private String method;
     private RequestInPack inpack;
     private Response response;
+    private Handler handler;
 
     public HttpRequest(String method, RequestInPack inpack,
                        RequestManager requestManager) {
@@ -47,6 +50,7 @@ public class HttpRequest implements Runnable, Serializable {
         this.inpack = inpack;
         requestManager.getRequestList().add(this);
         response = new Response();
+        handler = new Handler(FrameworkApp.getContext().getMainLooper());
     }
 
     public void abort() {
@@ -60,12 +64,21 @@ public class HttpRequest implements Runnable, Serializable {
             BaseEntity baseEntity = inpack.getBaseEntity().doParse(result);
             response.setResult(baseEntity);
             response.setErrorMessage("");
-            response.setErrorType(0);
-            if(response.isError()) {
-                inpack.getCallback().onFail(response);
-            } else {
-                inpack.getCallback().onSuccess(response);
-            }
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if(response.isError()) {
+                        response.setErrorType(-1);
+                        inpack.getCallback().onFail(response);
+                        DebugUtil.logError("onFail");
+                    } else {
+                        response.setErrorType(0);
+                        inpack.getCallback().onSuccess(response);
+                        DebugUtil.logInfo("onSuccess");
+
+                    }
+                }
+            });
         }
     }
 
@@ -78,7 +91,8 @@ public class HttpRequest implements Runnable, Serializable {
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
 
         List<NameValuePair> list = new ArrayList<NameValuePair>();
-        String url = inpack.getUrl();
+        UrlData urlData = inpack.getUrlData();
+        String url = urlData.getUrl();
         ArrayList<RequestParameter> parameters = inpack.getParameters();
 
         DebugUtil.logInfo("url->" + url);

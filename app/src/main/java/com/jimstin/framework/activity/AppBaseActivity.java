@@ -78,7 +78,7 @@ public abstract class AppBaseActivity extends BaseActivity {
 
         @Override
         public void onFail(Response response) {
-
+            toastLongMsg("network fail");
         }
     }
 }

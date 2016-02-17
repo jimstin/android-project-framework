@@ -3,9 +3,9 @@
     <node
             name="login"
             method="post"
-            api="http://114.215.132.245/ledian/LedianServer/api/login"/>
+            url="http://114.215.132.245/ledian/LedianServer/api/login.php"/>
     <node
             name="register"
             method="post"
-            api="http://114.215.132.245/ledian/LedianServer/api/register"/>
+            url="http://114.215.132.245/ledian/LedianServer/api/register.php"/>
 </url>

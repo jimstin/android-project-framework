@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.jimstin.frameworklib.R;
 import com.jimstin.frameworklib.net.RequestManager;
+import com.jimstin.frameworklib.utils.DebugUtil;
 
 /**
  * @author jim
@@ -35,6 +36,7 @@ public abstract class BaseActivity extends Activity {
         super.onPause();
         if (requestManager != null) {
             requestManager.cancelRequest();
+            DebugUtil.logInfo(getLocalClassName()+" >> onPause");
         }
     }
 
@@ -43,6 +45,7 @@ public abstract class BaseActivity extends Activity {
         super.onDestroy();
         if (requestManager != null) {
             requestManager.cancelRequest();
+            DebugUtil.logInfo(getLocalClassName()+" >> onDestroy");
         }
     }
 }

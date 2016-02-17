@@ -16,8 +16,9 @@ public class DefaultThreadPool {
     public static DefaultThreadPool getInstance() {
         if (mDefaultThreadPool == null) {
             mDefaultThreadPool = new DefaultThreadPool();
-            mQueue = new ArrayBlockingQueue<Runnable>(5);
-            mExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.SECONDS, mQueue);
+            mQueue = new ArrayBlockingQueue<Runnable>(1);
+            mExecutor = new ThreadPoolExecutor(1, 1, 30, TimeUnit.SECONDS, mQueue,
+                    new ThreadPoolExecutor.CallerRunsPolicy());
         }
         return mDefaultThreadPool;
     }

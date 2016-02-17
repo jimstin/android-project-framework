@@ -6,7 +6,7 @@ package com.jimstin.frameworklib.net;
 public class UrlData {
     private String name;
     private String method;
-    private String api;
+    private String url;
 
     public String getName() {
         return name;
@@ -24,11 +24,11 @@ public class UrlData {
         this.method = method;
     }
 
-    public String getApi() {
-        return api;
+    public String getUrl() {
+        return url;
     }
 
-    public void setApi(String api) {
-        this.api = api;
+    public void setUrl(String api) {
+        this.url = api;
     }
 }

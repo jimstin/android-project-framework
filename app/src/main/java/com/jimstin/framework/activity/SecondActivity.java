@@ -1,11 +1,7 @@
 package com.jimstin.framework.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import com.alibaba.fastjson.JSON;
 import com.jimstin.framework.R;
-import com.jimstin.frameworklib.entity.UserEntity;
 
 public class SecondActivity extends AppBaseActivity {
 
@@ -36,13 +32,6 @@ public class SecondActivity extends AppBaseActivity {
      */
     @Override
     protected void loadData() {
-
-        Intent intent = getIntent();
-        if (intent != null) {
-            UserEntity userEntity = (UserEntity) intent.getSerializableExtra("obj");
-            String jsonString = JSON.toJSONString(userEntity);
-            toastShortMsg(jsonString);
-        }
     }
 
 

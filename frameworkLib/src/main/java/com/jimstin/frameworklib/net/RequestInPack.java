@@ -8,26 +8,26 @@ import java.util.ArrayList;
  * Created by jim on 16-2-13.
  */
 public class RequestInPack {
-    private String url;
+    private UrlData urlData;
     private ArrayList<RequestParameter> parameters;
     private ArrayList<String> filePath;
     private BaseEntity baseEntity;
     private RequestCallback callback;
 
-    public RequestInPack(String url, ArrayList<RequestParameter> parameters,
+    public RequestInPack(UrlData urlData, ArrayList<RequestParameter> parameters,
                          BaseEntity baseEntity, RequestCallback callback) {
-        this.url = url;
+        this.urlData = urlData;
         this.parameters = parameters;
         this.baseEntity = baseEntity;
         this.callback = callback;
     }
 
-    public String getUrl() {
-        return url;
+    public UrlData getUrlData() {
+        return urlData;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrlData(UrlData urlData) {
+        this.urlData = urlData;
     }
 
     public ArrayList<RequestParameter> getParameters() {

@@ -34,7 +34,7 @@ public class UrlConfigManager {
                                         urlData.setMethod(value);
                                         break;
                                     case 2:
-                                        urlData.setApi(value);
+                                        urlData.setUrl(value);
                                         break;
                                     default:
                                         break;

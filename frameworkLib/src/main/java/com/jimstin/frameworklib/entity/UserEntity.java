@@ -39,6 +39,6 @@ public class UserEntity extends BaseEntity {
 
     @Override
     public BaseEntity doParse(String jsonString) {
-        return (UserEntity) JSON.parse(jsonString);
+        return JSON.parseObject(jsonString, UserEntity.class);
     }
 }

@@ -1,6 +1,6 @@
 package com.jimstin.frameworklib.net;
 
-import com.jimstin.frameworklib.entity.UserEntity;
+import com.jimstin.frameworklib.utils.DebugUtil;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,8 @@ public class RequestManager {
     private ArrayList<HttpRequest> requestList = new ArrayList<HttpRequest>();
 
     public void cancelRequest() {
+        DebugUtil.logInfo("cancelRequest");
+
         if (requestList != null && requestList.size() > 0) {
             for (HttpRequest request : requestList) {
                 request.abort();
@@ -23,12 +25,4 @@ public class RequestManager {
         return requestList;
     }
 
-    public void login(RequestCallback callback) {
-        String url = "";
-        ArrayList<RequestParameter> requestParameters =
-                new ArrayList<RequestParameter>();
-        RequestInPack inpack = new RequestInPack(url, requestParameters, new UserEntity(), callback);
-        HttpRequest httpRequest = new HttpRequest(HttpRequest.METHOD_POST, inpack, this);
-        DefaultThreadPool.getInstance().addRequest(httpRequest);
-    }
 }
