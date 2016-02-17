@@ -1,14 +1,10 @@
 package com.jimstin.framework.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import com.jimstin.framework.R;
-import com.jimstin.frameworklib.entity.UserEntity;
+import com.jimstin.frameworklib.net.UrlData;
 import com.jimstin.frameworklib.utils.DebugUtil;
-import com.jimstin.frameworklib.utils.GlobalUtil;
 import com.jimstin.frameworklib.utils.UrlConfigManager;
 
 
@@ -41,6 +37,9 @@ public class MainActivity extends AppBaseActivity {
      */
     @Override
     protected void loadData() {
-        UrlConfigManager.findUrlDate(this, "login");
+        UrlData urlData = UrlConfigManager.findUrlData(this, "register");
+        if(urlData != null) {
+            DebugUtil.logInfo("name="+urlData.getName()+" method="+urlData.getMethod()+" api="+urlData.getApi());
+        }
     }
 }
