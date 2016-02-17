@@ -9,6 +9,7 @@ import com.jimstin.framework.R;
 import com.jimstin.frameworklib.entity.UserEntity;
 import com.jimstin.frameworklib.utils.DebugUtil;
 import com.jimstin.frameworklib.utils.GlobalUtil;
+import com.jimstin.frameworklib.utils.UrlConfigManager;
 
 
 public class MainActivity extends AppBaseActivity {
@@ -33,26 +34,6 @@ public class MainActivity extends AppBaseActivity {
     @Override
     protected void initViews() {
 
-        Button btnJump = (Button) findViewById(R.id.btn_jump);
-        btnJump.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UserEntity userEntity = new UserEntity();
-                userEntity.setName("jim");
-                userEntity.setGender(UserEntity.GENDER_MALE);
-                userEntity.setAge(26);
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("obj", userEntity);
-                toActivity(intent);
-            }
-        });
-
-        testConvertToInt();
-    }
-
-    private void testConvertToInt() {
-        DebugUtil.logInfo(GlobalUtil.convertToInt("Jim", 9) + "");
-        DebugUtil.logInfo(GlobalUtil.convertToInt("123", 9)+"");
     }
 
     /**
@@ -60,6 +41,6 @@ public class MainActivity extends AppBaseActivity {
      */
     @Override
     protected void loadData() {
-
+        UrlConfigManager.findUrlDate(this, "login");
     }
 }

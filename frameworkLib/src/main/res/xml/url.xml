@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+    <node
+            name="login"
+            method="post"
+            api="http://114.215.132.245/ledian/LedianServer/api/login"/>
+    <node
+            name="register"
+            method="post"
+            api="http://114.215.132.245/ledian/LedianServer/api/register"/>
+</url>
