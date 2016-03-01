@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class GlobalUtil {
 
-    public static final int convertToInt(Object obj, int defaultValue) {
+    public static int convertToInt(Object obj, int defaultValue) {
         try {
             return Integer.parseInt(obj.toString());
         } catch (Exception e) {
@@ -26,15 +26,15 @@ public class GlobalUtil {
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             byte[] bytes = md5.digest(str.getBytes());
-            StringBuffer stringBuffer = new StringBuffer();
+            StringBuilder stringBuilder = new StringBuilder();
             for (byte b : bytes) {
                 int bt = b & 0xff;
                 if (bt < 16) {
-                    stringBuffer.append(0);
+                    stringBuilder.append(0);
                 }
-                stringBuffer.append(Integer.toHexString(bt));
+                stringBuilder.append(Integer.toHexString(bt));
             }
-            reStr = stringBuffer.toString();
+            reStr = stringBuilder.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

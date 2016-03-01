@@ -27,7 +27,7 @@ public class DefaultThreadPool {
         return mQueue;
     }
 
-    public static void addRequest(HttpRequest request) {
+    public void addRequest(HttpRequest request) {
         mExecutor.execute(request);
     }
 
