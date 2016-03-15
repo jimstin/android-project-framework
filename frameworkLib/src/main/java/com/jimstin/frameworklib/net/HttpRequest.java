@@ -53,6 +53,13 @@ public class HttpRequest implements Runnable, Serializable {
         handler = new Handler(FrameworkApp.getContext().getMainLooper());
     }
 
+    /**
+     * 发起网络访问
+     */
+    public void startRequest() {
+        DefaultThreadPool.getInstance().startRequest(this);
+    }
+
     public void abort() {
         isRemoved = DefaultThreadPool.getInstance().getTaskQuene().remove(this);
     }

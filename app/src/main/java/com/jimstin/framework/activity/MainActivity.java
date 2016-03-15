@@ -52,6 +52,13 @@ public class MainActivity extends AppBaseActivity {
      */
     @Override
     protected void loadData() {
+        /*RemoteService.login(new AbstractRequestCallback() {
+            @Override
+            public void onSuccess(Response response) {
+                tvText.setText((i + 1)+"");
+                DebugUtil.logInfo("request" + (i + 1));
+            }
+        }, requestManager);*/
     }
 
     private void startHeartBeat() {

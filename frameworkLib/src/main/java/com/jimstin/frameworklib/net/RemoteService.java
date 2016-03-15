@@ -20,7 +20,6 @@ public class RemoteService {
         requestParameters.add(requestParameter2);
         UrlData urlData = UrlConfigManager.findUrlData(FrameworkApp.getContext(), "login");
         RequestInPack inpack = new RequestInPack(urlData, requestParameters, new UserEntity(), callback);
-        HttpRequest httpRequest = new HttpRequest(HttpRequest.METHOD_POST, inpack, requestManager);
-        DefaultThreadPool.getInstance().addRequest(httpRequest);
+        new HttpRequest(HttpRequest.METHOD_POST, inpack, requestManager).startRequest();
     }
 }
